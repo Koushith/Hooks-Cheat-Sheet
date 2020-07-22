@@ -23,12 +23,14 @@ import ResourceList from './ResourceList';
 // }
 
 const App = () => {
-  const [resource, setRecource] = useState('posts');
+  const [resourceName, setResourceName] = useState('posts');
 
-  <React.Fragment>
-    <button onClick={() => setRecource('posts')}>Posts</button>
-    <button onClick={() => setRecource('todos')}>Todos</button>
-    <ResourceList resourceName={this.state.resourceName} />
-  </React.Fragment>;
+  return (
+    <React.Fragment>
+      <button onClick={() => setResourceName('posts')}>Posts</button>
+      <button onClick={() => setResourceName('todos')}>Todos</button>
+      <ResourceList resourceName={resourceName} />
+    </React.Fragment>
+  );
 };
 export default App;
