@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import PackageContext from './Context';
 
 const Provider = (props) => {
+  console.log('PROPS', props);
   const [mission, setMission] = useState({
     mname: 'Go to Russia',
     agent: '007',
