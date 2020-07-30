@@ -1,24 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Provider from './provider';
+import Context from './Context';
+
+const Agents = () => {
+  return <AgentOne />;
+};
+
+const AgentOne = () => {
+  return <AgentBond />;
+};
+
+const AgentBond = () => {
+  return (
+    <Context.Consumer>
+      {(context) => (
+        <>
+          <h3>Agent Informatio</h3>
+          <h2>Agent Name :{context.data.agent}</h2>
+          <h2>Mission Name: {context.data.mname}</h2>
+          <h2>Mission status: {context.data.accept}</h2>
+          <button onClick={context.isMissionAccepted}>Accept</button>
+          <button onClick={context.data.accept}>Denay</button>
+        </>
+      )}
+    </Context.Consumer>
+  );
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Context API</h1>
+      <Provider>
+        {/* passing data into ajents */}
+        <Agents />
+      </Provider>
     </div>
   );
 }
